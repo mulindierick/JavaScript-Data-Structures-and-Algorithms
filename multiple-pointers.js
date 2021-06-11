@@ -63,4 +63,3 @@ function countUniqueValues(arr) {
 }
 
 console.log(countUniqueValues([-2, -1, -1, 0, 1]));
-

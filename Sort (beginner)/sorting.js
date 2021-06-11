@@ -1,0 +1,12 @@
+/* 
+Bubble sort
+sending large values to the end
+
+Selection sort
+start with small values and puts them to the beginning 
+
+insetion sort
+find an element place it where it belongs until the array is sorted 
+
+
+*/

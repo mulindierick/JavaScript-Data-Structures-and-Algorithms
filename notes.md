@@ -13,7 +13,7 @@ How can we analyze the runtime of an algorithm as the size of the input increase
 
 #### Space complexity
 
-Space that an algorithm takes up as the size of the input increases.  
+Space that an algorithm takes up as the size of the input increases. 
 How much additional memory do we need in order to run the code in our algorithm as the size of input increases
 
 #### auxillary space complexity
