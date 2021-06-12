@@ -114,21 +114,20 @@ class SinglyLinkedList {
     this.length--;
     return nodeToBeRemoved;
   }
-  
-  reverse(){
-    // we first reverse the head 
-    let node = this.head
-    this.head = this.tail
-    this.tail = node
 
-    let next
-    let prev = null
+  reverse() {
+    // we first reverse the head
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+
+    let next;
+    let prev = null;
     for (let i = 0; i < this.length; i++) {
-      next = node.next
-      node.next = prev // previous is null
-      prev = node // previous is now a node
-      node = next // now nopde is what next wwas. we have moved node forward 
-
+      next = node.next;
+      node.next = prev; // previous is null
+      prev = node; // previous is now a node
+      node = next; // now nopde is what next wwas. we have moved node forward
     }
   }
 }
