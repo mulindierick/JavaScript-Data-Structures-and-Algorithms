@@ -15,28 +15,28 @@ class SinglyLinkedList {
     let newNode = new Node(val);
     if (!this.head) {
       this.head = newNode;
-      this.tail = this.head;
+      this.tail = this.head; // there is only one node, its therefore the head and the tail at the same time. 
     } else {
-      this.tail.next = newNode; // this is the only way of connecting the head to the tail. if the .next property is called on the head, it will find when the next propert is a node
-      this.tail = newNode; // if we use .next after here the tail will be pointing to itself
+      this.tail.next = newNode; //make next on the current tail point to the new node
+      this.tail = newNode; //make the newly added node the tail
     }
-    // now we need to increment length everytime
+    // now we need to increment length 
     this.length++;
     return this; // this returns the whole linked list
   }
   // remove node from the end of the list
   pop() {
-    if (!this.head) return undefined;
-    let current = this.head;
+    if (!this.head) return undefined; // list is empty
+    let current = this.head; // one step 
     let newTail = current;
     while (current.next) {
-      newTail = current;
+      newTail = current; // new tail will be one step behind
       current = current.next; // current will always be one step a head of newTail
     }
-    this.tail = newTail; // this points to the next node
-    this.tail.next = null; // so we need to make sure it point null now
+    this.tail = newTail; // this points to current, which is one node behind current.next
+    this.tail.next = null; // this deletes current.next by pointing to null
     this.length--;
-    if (this.length === 0) {
+    if (this.length === 0) { // incase list has only one node and is now at zero
       this.head = null;
       this.tail = null;
     }
@@ -45,8 +45,8 @@ class SinglyLinkedList {
   // remove node from the beginning of the list
   shift() {
     if (!this.head) return undefined;
-    let currentHead = this.head;
-    this.head = currentHead.next;
+    let currentHead = this.head; // assign current head to a var
+    this.head = currentHead.next; //make the second node the head
     this.length--;
     if (this.length === 0) {
       this.tail = null;
@@ -60,7 +60,7 @@ class SinglyLinkedList {
       this.head = newNode;
       this.tail = this.head;
     } else {
-      newNode.next = this.head;
+      newNode.next = this.head; 
       this.head = newNode;
     }
     this.length++;
