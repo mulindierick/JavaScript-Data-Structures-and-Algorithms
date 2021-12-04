@@ -1,6 +1,6 @@
 // get a large set of data and divide it into a small chunks of data
 // Example 1 - Binary Search
-// Accepts an  array of sorted values. The values must be sorted and a value and returns the index of where the value is found
+// Accepts an  array of sorted values. The values must be sorted returns the index of where the value is found
 
 // bad solution ..good method later
 function binarySearch(arr, value) {

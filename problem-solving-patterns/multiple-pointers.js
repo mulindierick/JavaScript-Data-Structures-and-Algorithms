@@ -2,7 +2,7 @@
 // Example 1
 
 // Write a function called sumZero which accepts a sorted array of integers.
-// the function should find the first pair where the sum is sum is Zero
+// the function should find the first pair where the sum is Zero
 // return an array that includes both values that sum toi zero or undefined if the sum does not exist.
 
 function sumZero(arr) {
@@ -15,7 +15,7 @@ function sumZero(arr) {
       // if any of the values add up, return them in an array
       return [arr[left], arr[right]];
     } else if (arr[left] + arr[right] > 0) {
-      // increment right every time you have positive difference
+      // decrement right every time you have positive difference
       right--;
     } else {
       // increment left for a negative difference
