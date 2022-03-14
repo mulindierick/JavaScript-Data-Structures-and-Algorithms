@@ -15,34 +15,35 @@ class SinglyLinkedList {
     let newNode = new Node(val);
     if (!this.head) {
       this.head = newNode;
-      this.tail = this.head; // there is only one node, its therefore the head and the tail at the same time. 
+      this.tail = this.head; // there is only one node, its therefore the head and the tail at the same time.
     } else {
-      this.tail.next = newNode; //make next on the current tail point to the new node
-      this.tail = newNode; //make the newly added node the tail
+      this.tail.next = newNode; //point the last node to the newly added node. tail was the last node, now point it to the new node using the next property
+      this.tail = newNode; //now make the newly added node the tail
     }
-    // now we need to increment length 
+    // now we need to increment length
     this.length++;
     return this; // this returns the whole linked list
   }
   // remove node from the end of the list
   pop() {
     if (!this.head) return undefined; // list is empty
-    let current = this.head; // one step 
+    let current = this.head; // one step
     let newTail = current;
     while (current.next) {
       newTail = current; // new tail will be one step behind
       current = current.next; // current will always be one step a head of newTail
     }
-    this.tail = newTail; // this points to current, which is one node behind current.next
-    this.tail.next = null; // this deletes current.next by pointing to null
+    this.tail = newTail; // points to current, which is one node behind current.next
+    this.tail.next = null; // deletes current.next by pointing to null
     this.length--;
-    if (this.length === 0) { // incase list has only one node and is now at zero
+    if (this.length === 0) {
+      // incase list has only one node and is now at zero
       this.head = null;
       this.tail = null;
     }
-    return current;
+    return current; // return the node we have removed
   }
-  // remove node from the beginning of the list
+  // remove and return node from the beginning of the list
   shift() {
     if (!this.head) return undefined;
     let currentHead = this.head; // assign current head to a var
@@ -51,27 +52,30 @@ class SinglyLinkedList {
     if (this.length === 0) {
       this.tail = null;
     }
-    return currentHead;
+    return currentHead; // return the first head
   }
   // add node at the beginning of the list
   unshift(val) {
     let newNode = new Node(val);
     if (!this.head) {
+      // there is no head
       this.head = newNode;
       this.tail = this.head;
     } else {
-      newNode.next = this.head; 
+      // there is a head
+      newNode.next = this.head;
       this.head = newNode;
     }
     this.length++;
     return this;
   }
-  // get the value at the given index
+  // get node at the given index
   get(index) {
     if (index < 0 || index >= this.length) return null;
     let counter = 0;
-    let current = this.head; // by the time counter is equal to index we will be at the node we want
+    let current = this.head;
     while (counter !== index) {
+      // by the time counter is equal to index we will be at the node we want
       current = current.next; //keep going forward until we get to the node we want
       counter++;
     }
@@ -86,10 +90,10 @@ class SinglyLinkedList {
     }
     return false;
   }
-  // insert a value at a given index
+  // insert a node at a given index
   insert(index, val) {
     if (index < 0 || index > this.length) return false;
-    if (index === 0) return !!this.unshift(val);
+    if (index === 0) return !!this.unshift(val); // !! return bolean instead of values
     if (index === this.length) return !!this.push(val);
 
     let newNode = new Node(val);
@@ -117,17 +121,17 @@ class SinglyLinkedList {
 
   reverse() {
     // we first reverse the head
-    let node = this.head;
-    this.head = this.tail;
-    this.tail = node;
+    let currentNode = this.head;
+    this.head = this.tail; // make head the tail
+    this.tail = currentNode; // make tail the head
 
     let next;
     let prev = null;
     for (let i = 0; i < this.length; i++) {
-      next = node.next;
-      node.next = prev; // previous is null
-      prev = node; // previous is now a node
-      node = next; // now nopde is what next wwas. we have moved node forward
+      next = currentNode.next; // store the node after the beginning node(tail)
+      currentNode.next = prev; // the beginning node points to nothing (tail.next == null)
+      prev = currentNode; // make previous the current node (previous is now point to the current node)
+      currentNode = next; // and make the next node the current node
     }
   }
 }
