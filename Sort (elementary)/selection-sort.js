@@ -1,9 +1,9 @@
-/* 
-Selection sort
-start with a small val compare to the next value. 
-if the next value is smaller, update the smaller value. until you find the samllest value.
-take the smallest value to the beginning
-*/
+// /* 
+// Selection sort
+// start with a small val compare to the next value. 
+// if the next value is smaller, update the smaller value. until you find the samllest value.
+// take the smallest value to the beginning
+// */
 
 const selectionSort = (arr) => {
   for (let i = 0; i < arr.length; i++) {
