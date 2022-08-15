@@ -3,6 +3,7 @@ class Graph {
     this.graph = {};
   }
   addVertex(v) {
+    if (!this.graph[v]) this.graph[v] = [];
   }
   addEdge(v1, v2) {
     this.graph[v1].push(v2);
