@@ -43,7 +43,7 @@ console.log(mergeSort([34, 6, 1, 5, 9, 3, 2, 456, 7, 0]));
 
 //Method 2
 
-const merge = (left, right) => {
+const merge2 = (left, right) => {
   let arr = [];
 
   while (left.length && right.length) {
@@ -52,7 +52,7 @@ const merge = (left, right) => {
   return [...arr, ...left, ...right];
 };
 
-const mergeSort = (arr) => {
+const mergeSort2 = (arr) => {
   if (arr.length < 2) return arr;
   const half = arr.length / 2;
   const left = arr.splice(0, half);

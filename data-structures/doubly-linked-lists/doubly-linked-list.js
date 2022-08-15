@@ -126,35 +126,35 @@ class DoublyLinkedList {
     if (index === this.length - 1) return this.pop();
     if (index === 0) return this.shift();
 
-    let nodeToBeRemoved = this.get(index)
-    let prevNode = nodeToBeRemoved.prev
-    let nextNode = nodeToBeRemoved.next
-    prevNode.next = nextNode
-    nextNode.prev = prevNode
-    nodeToBeRemoved.prev = null
-    nodeToBeRemoved.next = null
+    let nodeToBeRemoved = this.get(index);
+    let prevNode = nodeToBeRemoved.prev;
+    let nextNode = nodeToBeRemoved.next;
+    prevNode.next = nextNode;
+    nextNode.prev = prevNode;
+    nodeToBeRemoved.prev = null;
+    nodeToBeRemoved.next = null;
 
-    this.length--
-    return nodeToBeRemoved
+    this.length--;
+    return nodeToBeRemoved;
   }
 
-  reverse(){
-      if(!this.head) return undefined
-      let currentNode = this.head
-      this.head = this.tail
-      this.tail = currentNode
-      
-      let counter = 0
-      let prev = null
-      let next;
-      while(counter < this.length){
-          next = currentNode.next
-          currentNode.prev = next
-          currentNode.next = prev
-          prev = currentNode
-          currentNode = next
-          counter++
-      }
-      return this
+  reverse() {
+    if (!this.head) return undefined;
+    let currentNode = this.head;
+    this.head = this.tail;
+    this.tail = currentNode;
+
+    let counter = 0;
+    let prev = null;
+    let next;
+    while (counter < this.length) {
+      next = currentNode.next;
+      currentNode.prev = next;
+      currentNode.next = prev;
+      prev = currentNode;
+      currentNode = next;
+      counter++;
+    }
+    return this;
   }
 }

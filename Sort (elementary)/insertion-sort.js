@@ -13,7 +13,7 @@ const insertionSort = (arr) => {
     }
     console.log(arr[j + 1], currentVal);
     arr[j + 1] = currentVal;
-    // 2          1 
+    // 2          1
     //next currentval will be 4
   }
   return arr;

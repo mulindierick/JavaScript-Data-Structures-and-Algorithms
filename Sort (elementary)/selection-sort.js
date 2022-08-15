@@ -1,6 +1,6 @@
-// /* 
+// /*
 // Selection sort
-// start with a small val compare to the next value. 
+// start with a small val compare to the next value.
 // if the next value is smaller, update the smaller value. until you find the samllest value.
 // take the smallest value to the beginning
 // */

@@ -89,7 +89,7 @@ class BinarySearchTree {
   }
   // DFS - PostOder
   // start from the bottom of the left, then right, and the root last
-  DFSPostOrder(){
+  DFSPostOrder() {
     let data = [];
     function traverse(node) {
       if (node.left) traverse(node.left);
@@ -101,7 +101,7 @@ class BinarySearchTree {
   }
   // DFS - PostOder
   // start from the bottom of the left, the the root, and the right side last
-  DFSInOrder(){
+  DFSInOrder() {
     let data = [];
     function traverse(node) {
       if (node.left) traverse(node.left);
