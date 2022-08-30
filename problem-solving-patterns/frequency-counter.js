@@ -55,7 +55,8 @@ function ana(a, b) {
 
   for (let i = 0; i < b.length; i++) {
     let letter = b[i];
-    if (!objA[letter]) { // if value is not there or value is 0
+    if (!objA[letter]) {
+      // if value is not there or value is 0
       return false;
     } else {
       objA[letter] -= 1; // count down to 0
