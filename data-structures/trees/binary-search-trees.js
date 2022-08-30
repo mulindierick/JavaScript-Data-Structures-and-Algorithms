@@ -62,53 +62,60 @@ class BinarySearchTree {
     return currentRoot;
   }
   // Breadth first search
+  // get root, then left, then right
   BFS() {
-    let currNode = this.root;
-    let data = [];
-    let queue = [];
+    let currNode = this.root
+    let queue = []
+    let data = []
+    // add root to queue
     queue.push(currNode);
     while (queue.length) {
+      //get current node
       currNode = queue.shift();
       data.push(currNode);
       if (currNode.left) queue.push(currNode.left);
       if (currNode.right) queue.push(currNode.right);
     }
-    return data;
+    return data
   }
   //deepth first search pre-order
+  // pre-order, or visit node before
+  // node, left, right
   // start from the root, traverse the left, then the right
   DFSPreOrder() {
-    let data = [];
-    function traverse(node) {
-      data.push(node);
-      if (node.left) traverse(node.left);
-      if (node.right) traverse(node.right);
+    let result = []
+    function traverse(node){
+      result.push(node.value)
+      if(node.left) traverse(node.left)
+      if(node.right) traverse(node.right)
     }
-    traverse(this.root);
-    return data;
+    traverse(this.root)
+    return result
   }
   // DFS - PostOder
-  // start from the bottom of the left, then right, and the root last
-  DFSPostOrder(){
-    let data = [];
-    function traverse(node) {
-      if (node.left) traverse(node.left);
-      if (node.right) traverse(node.right);
-      data.push(node);
+  // visit node after
+  // left, right, node
+  DFSPostOrder() {
+    let result = []
+    function traverse(node){
+      if(node.left) traverse(node.left)
+      if(node.right) traverse(node.right)
+      result.push(node.value)
     }
-    traverse(this.root);
-    return data;
+    traverse(this.node)
+    return result
   }
-  // DFS - PostOder
-  // start from the bottom of the left, the the root, and the right side last
-  DFSInOrder(){
-    let data = [];
-    function traverse(node) {
-      if (node.left) traverse(node.left);
-      data.push(node);
-      if (node.right) traverse(node.right);
+  // DFS - InOder
+  // visit node in between
+  // left, node, right
+  DFSInOrder() {
+    let result = []
+    function traverse(node){
+      if(node.left) traverse(node.left)
+      result.push(node.value)
+      if(node.right) traverse(node.right)
     }
-    traverse(this.root);
-    return data;
+    traverse(this.root)
+    return result
   }
 }
